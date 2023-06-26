@@ -15,6 +15,7 @@
 		FF1DAB502A47C43200DABE85 /* LocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1DAB4F2A47C43200DABE85 /* LocationMapView.swift */; };
 		FF1DAB522A47C5D000DABE85 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1DAB512A47C5D000DABE85 /* LocationListView.swift */; };
 		FF1DAB542A47C5E000DABE85 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1DAB532A47C5E000DABE85 /* ProfileView.swift */; };
+		FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79241F2A49C163007F083B /* LocationDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FF1DAB4F2A47C43200DABE85 /* LocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapView.swift; sourceTree = "<group>"; };
 		FF1DAB512A47C5D000DABE85 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		FF1DAB532A47C5E000DABE85 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FF79241F2A49C163007F083B /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				FF1DAB4F2A47C43200DABE85 /* LocationMapView.swift */,
 				FF1DAB512A47C5D000DABE85 /* LocationListView.swift */,
 				FF1DAB532A47C5E000DABE85 /* ProfileView.swift */,
+				FF79241F2A49C163007F083B /* LocationDetailView.swift */,
 			);
 			path = DubDubGrub;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				FF1DAB3D2A47BF4100DABE85 /* DubDubGrubApp.swift in Sources */,
 				FF1DAB502A47C43200DABE85 /* LocationMapView.swift in Sources */,
 				FF1DAB522A47C5D000DABE85 /* LocationListView.swift in Sources */,
+				FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */,
 				FF1DAB4E2A47C35200DABE85 /* AppTabView.swift in Sources */,
 				FF1DAB542A47C5E000DABE85 /* ProfileView.swift in Sources */,
 				FF1DAB4C2A47C1E000DABE85 /* Color+Ext.swift in Sources */,
