@@ -25,6 +25,7 @@ struct AppTabView: View {
                     Label("Profile", systemImage: "person")
                 }
         }
+        .tabViewStyle(DefaultTabViewStyle())
         .tint(.brandPrimary)
     }
 }
