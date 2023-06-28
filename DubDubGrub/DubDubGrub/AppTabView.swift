@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct AppTabView: View {
+    
     var body: some View {
-        TabView {
+        TabView() {
             LocationMapView()
                 .tabItem {
                     Label("Map", systemImage: "map")
@@ -24,6 +25,9 @@ struct AppTabView: View {
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
+        }
+        .onAppear{
+            UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified)
         }
         .tabViewStyle(DefaultTabViewStyle())
         .tint(.brandPrimary)
