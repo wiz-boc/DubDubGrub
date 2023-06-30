@@ -12,26 +12,16 @@ struct LocationDetailView: View {
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     var body: some View {
         VStack(spacing: 16){
-            Image("default-banner-asset")
-                .resizable()
-                .scaledToFill()
-                .frame(height: 120)
-                .padding(.top)
+            BannerImageView(imageName: "default-banner-asset")
             
             HStack{
-                Label("234 Main Street", systemImage: "mappin.and.ellipse")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                AddressView(address: "234 Main Street")
                 
                 Spacer()
             }
             .padding(.horizontal)
             
-            Text("This os a test description. This os a test description This os a test description This os a test description This os a test description This os a test description")
-                .lineLimit(3)
-                .minimumScaleFactor(0.75)
-                .frame(height: 70)
-                .padding(.horizontal)
+            DescriptionView(description: "This os a test description. This os a test description This os a test description This os a test description This os a test description This os a test description")
             
             ZStack{
                 Capsule()
@@ -130,5 +120,37 @@ struct FirstNameAvatarView: View {
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)
         }
+    }
+}
+
+struct BannerImageView: View {
+    var imageName: String
+    var body: some View {
+        Image(imageName)
+            .resizable()
+            .scaledToFill()
+            .frame(height: 120)
+            .padding(.top)
+    }
+}
+
+struct AddressView: View {
+var address: String
+    var body: some View {
+        Label(address, systemImage: "mappin.and.ellipse")
+            .font(.caption)
+            .foregroundColor(.secondary)
+    }
+}
+
+struct DescriptionView: View {
+    
+var description: String
+    var body: some View {
+        Text(description)
+            .lineLimit(3)
+            .minimumScaleFactor(0.75)
+            .frame(height: 70)
+            .padding(.horizontal)
     }
 }

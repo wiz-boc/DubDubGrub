@@ -15,6 +15,11 @@
 		FF1DAB502A47C43200DABE85 /* LocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1DAB4F2A47C43200DABE85 /* LocationMapView.swift */; };
 		FF1DAB522A47C5D000DABE85 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1DAB512A47C5D000DABE85 /* LocationListView.swift */; };
 		FF1DAB542A47C5E000DABE85 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1DAB532A47C5E000DABE85 /* ProfileView.swift */; };
+		FF4F92862A4EFB2000D803B8 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F92852A4EFB2000D803B8 /* LocationCell.swift */; };
+		FF4F92882A4EFB6300D803B8 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F92872A4EFB6300D803B8 /* AvatarView.swift */; };
+		FF4F928A2A4F065100D803B8 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F92892A4F065100D803B8 /* CustomModifiers.swift */; };
+		FF4F928C2A4F067500D803B8 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F928B2A4F067500D803B8 /* View+Ext.swift */; };
+		FF4F928E2A4F072600D803B8 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F928D2A4F072600D803B8 /* DDGButton.swift */; };
 		FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79241F2A49C163007F083B /* LocationDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +34,11 @@
 		FF1DAB4F2A47C43200DABE85 /* LocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapView.swift; sourceTree = "<group>"; };
 		FF1DAB512A47C5D000DABE85 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		FF1DAB532A47C5E000DABE85 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FF4F92852A4EFB2000D803B8 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		FF4F92872A4EFB6300D803B8 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		FF4F92892A4F065100D803B8 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
+		FF4F928B2A4F067500D803B8 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		FF4F928D2A4F072600D803B8 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
 		FF79241F2A49C163007F083B /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,16 +72,12 @@
 		FF1DAB3B2A47BF4100DABE85 /* DubDubGrub */ = {
 			isa = PBXGroup;
 			children = (
+				FF4F928F2A4F089900D803B8 /* Extension */,
 				FF1DAB4A2A47BFA400DABE85 /* DubDubGrub.entitlements */,
 				FF1DAB3C2A47BF4100DABE85 /* DubDubGrubApp.swift */,
 				FF1DAB402A47BF4300DABE85 /* Assets.xcassets */,
 				FF1DAB422A47BF4300DABE85 /* Preview Content */,
-				FF1DAB4B2A47C1E000DABE85 /* Color+Ext.swift */,
-				FF1DAB4D2A47C35200DABE85 /* AppTabView.swift */,
-				FF1DAB4F2A47C43200DABE85 /* LocationMapView.swift */,
-				FF1DAB512A47C5D000DABE85 /* LocationListView.swift */,
-				FF1DAB532A47C5E000DABE85 /* ProfileView.swift */,
-				FF79241F2A49C163007F083B /* LocationDetailView.swift */,
+				FF4F92902A4F08AE00D803B8 /* Views */,
 			);
 			path = DubDubGrub;
 			sourceTree = "<group>";
@@ -82,6 +88,55 @@
 				FF1DAB432A47BF4300DABE85 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FF4F928F2A4F089900D803B8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FF1DAB4B2A47C1E000DABE85 /* Color+Ext.swift */,
+				FF4F928B2A4F067500D803B8 /* View+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FF4F92902A4F08AE00D803B8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF4F92892A4F065100D803B8 /* CustomModifiers.swift */,
+				FF4F92932A4F08E200D803B8 /* CustomViews */,
+				FF4F92922A4F08DC00D803B8 /* Cells */,
+				FF4F92912A4F08C000D803B8 /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FF4F92912A4F08C000D803B8 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FF1DAB532A47C5E000DABE85 /* ProfileView.swift */,
+				FF1DAB4F2A47C43200DABE85 /* LocationMapView.swift */,
+				FF1DAB512A47C5D000DABE85 /* LocationListView.swift */,
+				FF79241F2A49C163007F083B /* LocationDetailView.swift */,
+				FF1DAB4D2A47C35200DABE85 /* AppTabView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FF4F92922A4F08DC00D803B8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FF4F92852A4EFB2000D803B8 /* LocationCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FF4F92932A4F08E200D803B8 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				FF4F92872A4EFB6300D803B8 /* AvatarView.swift */,
+				FF4F928D2A4F072600D803B8 /* DDGButton.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,11 +210,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF1DAB3D2A47BF4100DABE85 /* DubDubGrubApp.swift in Sources */,
+				FF4F928A2A4F065100D803B8 /* CustomModifiers.swift in Sources */,
 				FF1DAB502A47C43200DABE85 /* LocationMapView.swift in Sources */,
 				FF1DAB522A47C5D000DABE85 /* LocationListView.swift in Sources */,
 				FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */,
 				FF1DAB4E2A47C35200DABE85 /* AppTabView.swift in Sources */,
 				FF1DAB542A47C5E000DABE85 /* ProfileView.swift in Sources */,
+				FF4F928C2A4F067500D803B8 /* View+Ext.swift in Sources */,
+				FF4F92862A4EFB2000D803B8 /* LocationCell.swift in Sources */,
+				FF4F928E2A4F072600D803B8 /* DDGButton.swift in Sources */,
+				FF4F92882A4EFB6300D803B8 /* AvatarView.swift in Sources */,
 				FF1DAB4C2A47C1E000DABE85 /* Color+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
