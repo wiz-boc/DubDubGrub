@@ -22,6 +22,8 @@
 		FF4F928E2A4F072600D803B8 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F928D2A4F072600D803B8 /* DDGButton.swift */; };
 		FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79241F2A49C163007F083B /* LocationDetailView.swift */; };
 		FFFD87862A51E20B008CAEAC /* DDGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87852A51E20B008CAEAC /* DDGLocation.swift */; };
+		FFFD87882A51EB7C008CAEAC /* DDGProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87872A51EB7C008CAEAC /* DDGProfile.swift */; };
+		FFFD878A2A51ECE4008CAEAC /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87892A51ECE4008CAEAC /* MockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		FF4F928D2A4F072600D803B8 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
 		FF79241F2A49C163007F083B /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		FFFD87852A51E20B008CAEAC /* DDGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocation.swift; sourceTree = "<group>"; };
+		FFFD87872A51EB7C008CAEAC /* DDGProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGProfile.swift; sourceTree = "<group>"; };
+		FFFD87892A51ECE4008CAEAC /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				FFFD87852A51E20B008CAEAC /* DDGLocation.swift */,
+				FFFD87872A51EB7C008CAEAC /* DDGProfile.swift */,
+				FFFD87892A51ECE4008CAEAC /* MockData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,7 +230,9 @@
 				FF4F928A2A4F065100D803B8 /* CustomModifiers.swift in Sources */,
 				FF1DAB502A47C43200DABE85 /* LocationMapView.swift in Sources */,
 				FF1DAB522A47C5D000DABE85 /* LocationListView.swift in Sources */,
+				FFFD878A2A51ECE4008CAEAC /* MockData.swift in Sources */,
 				FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */,
+				FFFD87882A51EB7C008CAEAC /* DDGProfile.swift in Sources */,
 				FFFD87862A51E20B008CAEAC /* DDGLocation.swift in Sources */,
 				FF1DAB4E2A47C35200DABE85 /* AppTabView.swift in Sources */,
 				FF1DAB542A47C5E000DABE85 /* ProfileView.swift in Sources */,
