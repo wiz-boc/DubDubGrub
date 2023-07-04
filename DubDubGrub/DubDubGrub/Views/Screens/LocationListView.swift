@@ -9,12 +9,12 @@ import SwiftUI
 
 struct LocationListView: View {
     
-    @State private var locations: [DDGLocation] = [DDGLocation(record: MockData.location)]
+    @EnvironmentObject private var locationManager: LocationManager
     
     var body: some View {
         NavigationView {
             List{
-                ForEach(locations, id: \.ckRecordID){ location in
+                ForEach(locationManager.locations){ location in
                     NavigationLink { LocationDetailView(location: location) } label: { LocationCell(location: location) }
                 }
             }
@@ -28,6 +28,7 @@ struct LocationListView: View {
 struct LocationListView_Previews: PreviewProvider {
     static var previews: some View {
         LocationListView()
+            .environmentObject(LocationManager())
     }
 }
 
