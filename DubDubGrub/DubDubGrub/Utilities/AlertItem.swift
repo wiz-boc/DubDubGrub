@@ -17,4 +17,7 @@ struct AlertItem: Identifiable {
 struct AlertContext {
     //MARK: - MapView Errors
     static let unableToGetLocations = AlertItem(title: Text("Locations Errors"), message: Text("Unable to retrieve locations at this time.\nPlease try again"), dismissButton: .default(Text("Ok")))
+    static let locationRestricted = AlertItem(title: Text("Location restricted"), message: Text("Your location is restricted."), dismissButton: .default(Text("Ok")))
+    static let locationDenied = AlertItem(title: Text("Location Denied"), message: Text("Dub Dub does not have permission to access your location."), dismissButton: .default(Text("Ok")))
+    static let locationDisable = AlertItem(title: Text("Location Disable"), message: Text("Your phone's location services are disabled."), dismissButton: .default(Text("Ok")))
 }
