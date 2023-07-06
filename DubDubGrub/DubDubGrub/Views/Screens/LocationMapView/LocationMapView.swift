@@ -21,7 +21,7 @@ struct LocationMapView: View {
             .ignoresSafeArea()
             
             VStack {
-                LogoView().shadow(radius: 10)
+                LogoView(frameWidth: 125).shadow(radius: 10)
                 Spacer()
             }
         }
@@ -44,12 +44,3 @@ struct LocationMapView_Previews: PreviewProvider {
     }
 }
 
-struct LogoView: View {
-    var body: some View {
-        Image("ddg-map-logo")
-            .resizable()
-            .scaledToFit()
-            .frame(height: 70)
-            
-    }
-}
