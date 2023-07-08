@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF09E9FB2A5903DB0030B113 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF09E9FA2A5903DB0030B113 /* PhotoPicker.swift */; };
 		FF1DAB3D2A47BF4100DABE85 /* DubDubGrubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1DAB3C2A47BF4100DABE85 /* DubDubGrubApp.swift */; };
 		FF1DAB412A47BF4300DABE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF1DAB402A47BF4300DABE85 /* Assets.xcassets */; };
 		FF1DAB442A47BF4300DABE85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF1DAB432A47BF4300DABE85 /* Preview Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF09E9FA2A5903DB0030B113 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		FF1DAB392A47BF4100DABE85 /* DubDubGrub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DubDubGrub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF1DAB3C2A47BF4100DABE85 /* DubDubGrubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DubDubGrubApp.swift; sourceTree = "<group>"; };
 		FF1DAB402A47BF4300DABE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF09E9F92A5903390030B113 /* UIKit Components */ = {
+			isa = PBXGroup;
+			children = (
+				FF09E9FA2A5903DB0030B113 /* PhotoPicker.swift */,
+			);
+			path = "UIKit Components";
+			sourceTree = "<group>";
+		};
 		FF1DAB302A47BF4100DABE85 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 		FF4F92932A4F08E200D803B8 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				FF09E9F92A5903390030B113 /* UIKit Components */,
 				FFFDDBF42A5735A400F8ED57 /* Buttons */,
 				FF4F92872A4EFB6300D803B8 /* AvatarView.swift */,
 				FFFDDBF22A57325100F8ED57 /* LogoView.swift */,
@@ -298,6 +309,7 @@
 				FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */,
 				FFFD87882A51EB7C008CAEAC /* DDGProfile.swift in Sources */,
 				FFFD87862A51E20B008CAEAC /* DDGLocation.swift in Sources */,
+				FF09E9FB2A5903DB0030B113 /* PhotoPicker.swift in Sources */,
 				FF1DAB4E2A47C35200DABE85 /* AppTabView.swift in Sources */,
 				FF1DAB542A47C5E000DABE85 /* ProfileView.swift in Sources */,
 				FFFD878D2A51FE97008CAEAC /* CloudKitManager.swift in Sources */,
