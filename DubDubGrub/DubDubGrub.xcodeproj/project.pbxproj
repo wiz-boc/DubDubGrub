@@ -22,6 +22,7 @@
 		FF4F928C2A4F067500D803B8 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F928B2A4F067500D803B8 /* View+Ext.swift */; };
 		FF4F928E2A4F072600D803B8 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F928D2A4F072600D803B8 /* DDGButton.swift */; };
 		FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79241F2A49C163007F083B /* LocationDetailView.swift */; };
+		FF9FF9DE2A59DC9700F79B11 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FF9DD2A59DC9700F79B11 /* UIImage+Ext.swift */; };
 		FFFD87862A51E20B008CAEAC /* DDGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87852A51E20B008CAEAC /* DDGLocation.swift */; };
 		FFFD87882A51EB7C008CAEAC /* DDGProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87872A51EB7C008CAEAC /* DDGProfile.swift */; };
 		FFFD878A2A51ECE4008CAEAC /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87892A51ECE4008CAEAC /* MockData.swift */; };
@@ -55,6 +56,7 @@
 		FF4F928B2A4F067500D803B8 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		FF4F928D2A4F072600D803B8 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
 		FF79241F2A49C163007F083B /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		FF9FF9DD2A59DC9700F79B11 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		FFFD87852A51E20B008CAEAC /* DDGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocation.swift; sourceTree = "<group>"; };
 		FFFD87872A51EB7C008CAEAC /* DDGProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGProfile.swift; sourceTree = "<group>"; };
 		FFFD87892A51ECE4008CAEAC /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				FF4F928B2A4F067500D803B8 /* View+Ext.swift */,
 				FFFD87912A5204FC008CAEAC /* CKRecord+Ext.swift */,
 				FFFD879B2A54498B008CAEAC /* CKAsset+Ext.swift */,
+				FF9FF9DD2A59DC9700F79B11 /* UIImage+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				FFFD879C2A54498B008CAEAC /* CKAsset+Ext.swift in Sources */,
 				FFFDDBF12A572FC200F8ED57 /* OnboardView.swift in Sources */,
 				FF4F928E2A4F072600D803B8 /* DDGButton.swift in Sources */,
+				FF9FF9DE2A59DC9700F79B11 /* UIImage+Ext.swift in Sources */,
 				FF4F92882A4EFB6300D803B8 /* AvatarView.swift in Sources */,
 				FF1DAB4C2A47C1E000DABE85 /* Color+Ext.swift in Sources */,
 			);
