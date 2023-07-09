@@ -6,6 +6,7 @@
 //
 
 import CloudKit
+import UIKit
 
 struct DDGProfile {
     
@@ -34,5 +35,10 @@ struct DDGProfile {
         bio = record[DDGProfile.kBio] as? String ?? "N/A"
         //isCheckedIn = record[DDGProfile.KIsCheckedIn] as? CKRecord.Reference
         
+    }
+    
+    func createAvatarImage() -> UIImage {
+        guard let avatar = avatar else { return PlaceholderImage.avatar }
+        return avatar.convertToUIImage(in: .square)
     }
 }
