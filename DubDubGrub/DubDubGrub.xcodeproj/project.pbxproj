@@ -24,6 +24,7 @@
 		FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79241F2A49C163007F083B /* LocationDetailView.swift */; };
 		FF9FF9DE2A59DC9700F79B11 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FF9DD2A59DC9700F79B11 /* UIImage+Ext.swift */; };
 		FFB795812A5AF6CA00497D3B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB795802A5AF6CA00497D3B /* ProfileViewModel.swift */; };
+		FFC3422D2A5C4172003D1ED8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3422C2A5C4172003D1ED8 /* LoadingView.swift */; };
 		FFFD87862A51E20B008CAEAC /* DDGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87852A51E20B008CAEAC /* DDGLocation.swift */; };
 		FFFD87882A51EB7C008CAEAC /* DDGProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87872A51EB7C008CAEAC /* DDGProfile.swift */; };
 		FFFD878A2A51ECE4008CAEAC /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87892A51ECE4008CAEAC /* MockData.swift */; };
@@ -59,6 +60,7 @@
 		FF79241F2A49C163007F083B /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		FF9FF9DD2A59DC9700F79B11 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		FFB795802A5AF6CA00497D3B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		FFC3422C2A5C4172003D1ED8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FFFD87852A51E20B008CAEAC /* DDGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocation.swift; sourceTree = "<group>"; };
 		FFFD87872A51EB7C008CAEAC /* DDGProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGProfile.swift; sourceTree = "<group>"; };
 		FFFD87892A51ECE4008CAEAC /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				FFFDDBF42A5735A400F8ED57 /* Buttons */,
 				FF4F92872A4EFB6300D803B8 /* AvatarView.swift */,
 				FFFDDBF22A57325100F8ED57 /* LogoView.swift */,
+				FFC3422C2A5C4172003D1ED8 /* LoadingView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				FFFD879C2A54498B008CAEAC /* CKAsset+Ext.swift in Sources */,
 				FFFDDBF12A572FC200F8ED57 /* OnboardView.swift in Sources */,
 				FF4F928E2A4F072600D803B8 /* DDGButton.swift in Sources */,
+				FFC3422D2A5C4172003D1ED8 /* LoadingView.swift in Sources */,
 				FF9FF9DE2A59DC9700F79B11 /* UIImage+Ext.swift in Sources */,
 				FF4F92882A4EFB6300D803B8 /* AvatarView.swift in Sources */,
 				FF1DAB4C2A47C1E000DABE85 /* Color+Ext.swift in Sources */,

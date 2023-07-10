@@ -21,6 +21,10 @@ struct AlertContext {
     static let locationDenied = AlertItem(title: Text("Location Denied"), message: Text("Dub Dub does not have permission to access your location."), dismissButton: .default(Text("Ok")))
     static let locationDisable = AlertItem(title: Text("Location Disable"), message: Text("Your phone's location services are disabled."), dismissButton: .default(Text("Ok")))
     
-    //MARK: - ProfileVIew Errors
-    static let invalidProfile = AlertItem(title: Text("Invalid Profile"), message: Text("All fields are required as well as a profle photo. Your bio must be < 100 characters.\n Please try again"), dismissButton: .default(Text("Ok")))
+    //MARK: - ProfileView Errors
+    static let invalidProfile = AlertItem(title: Text("Invalid Profile"), message: Text("All fields are required as well as a profile photo. Your bio must be < 100 characters.\n Please try again"), dismissButton: .default(Text("Ok")))
+    static let noUserRecord = AlertItem(title: Text("No User Record"), message: Text("You must be sign in to iCloud on your phone to use DubDub grub\n Please sign in in settings"), dismissButton: .default(Text("Ok")))
+    static let createProfileSuccess = AlertItem(title: Text("Profile Create successfully"), message: Text("You profile was successfully saved"), dismissButton: .default(Text("Ok")))
+    static let createProfileFail = AlertItem(title: Text("Fail to Create Profile"), message: Text("We were unable to create your profile.\nPlease retry again"), dismissButton: .default(Text("Ok")))
+    static let unableToGetProfile = AlertItem(title: Text("Unable to retrieve profile"), message: Text("We were unable to retrieve your profile.\nPlease retry again"), dismissButton: .default(Text("Ok")))
 }

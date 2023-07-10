@@ -15,6 +15,7 @@ final class ProfileViewModel: ObservableObject {
     @Published var bio  = ""
     @Published var avatar = PlaceholderImage.avatar
     @Published var isShowingPhotoPicker = false
+    @Published var isLoading = false
     @Published var alertItem: AlertItem?
     
     func isValidProfile() -> Bool {
@@ -38,12 +39,17 @@ final class ProfileViewModel: ObservableObject {
         
         guard let userRecord = CloudKitManager.shared.userRecord else { return }
         userRecord["userProfile"] = CKRecord.Reference(recordID: profileRecord.recordID, action: .none)
+        showLoadingView()
         CloudKitManager.shared.batchSave(records: [userRecord,profileRecord]) { result in
-            switch result {
-                case .success(_):
-                    break
-                case .failure(_):
-                    break
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                hideLoadingView()
+                switch result {
+                    case .success(_):
+                        alertItem = AlertContext.createProfileSuccess
+                    case .failure(_):
+                        alertItem = AlertContext.createProfileFail
+                }
             }
         }
         
@@ -51,16 +57,20 @@ final class ProfileViewModel: ObservableObject {
     
     func getProfile(){
         
-        guard let userRecord = CloudKitManager.shared.userRecord else { return }
+        guard let userRecord = CloudKitManager.shared.userRecord else {
+            alertItem = AlertContext.noUserRecord
+            return
+        }
         guard let profileReference = userRecord["userProfile"] as? CKRecord.Reference else { return }
         let profileRecordID = profileReference.recordID
         
+        showLoadingView()
         CloudKitManager.shared.fetchRecord(with: profileRecordID) { result in
             DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                hideLoadingView()
                 switch result {
                     case .success(let record):
-                        
-                        guard let self = self else { return }
                         let profile = DDGProfile(record: record)
                         firstName = profile.firstName
                         lastName = profile.lastName
@@ -68,7 +78,7 @@ final class ProfileViewModel: ObservableObject {
                         bio = profile.bio
                         avatar = profile.createAvatarImage()
                     case .failure(_):
-                        break
+                        alertItem = AlertContext.unableToGetProfile
                 }
             }
         }
@@ -85,5 +95,8 @@ final class ProfileViewModel: ObservableObject {
         
         return profileRecord
     }
+    
+    private func showLoadingView() { isLoading = true }
+    private func hideLoadingView() { isLoading = false }
     
 }
