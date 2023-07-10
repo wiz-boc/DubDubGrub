@@ -45,7 +45,7 @@ struct ProfileView: View {
             Spacer()
             
             Button{
-               // viewModel.createProfile()
+               viewModel.createProfile()
             } label: {
                 DDGButton(title: "Create Profile")
             }

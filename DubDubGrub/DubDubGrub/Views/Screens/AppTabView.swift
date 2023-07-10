@@ -29,6 +29,7 @@ struct AppTabView: View {
         }
         .onAppear{
             UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified)
+            CloudKitManager.shared.getUserRecord()
         }
         .tabViewStyle(DefaultTabViewStyle())
         .tint(.brandPrimary)
