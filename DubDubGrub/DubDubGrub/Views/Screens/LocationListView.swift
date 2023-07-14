@@ -15,7 +15,8 @@ struct LocationListView: View {
         NavigationView {
             List{
                 ForEach(locationManager.locations){ location in
-                    NavigationLink { LocationDetailView(location: location) } label: { LocationCell(location: location) }
+                    NavigationLink { LocationDetailView(viewModel: LocationDetailViewModel(location: location)) } label: { LocationCell(location: location)
+                    }
                 }
             }
             .scrollContentBackground(.hidden)

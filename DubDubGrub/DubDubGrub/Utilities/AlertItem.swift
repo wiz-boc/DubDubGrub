@@ -27,4 +27,9 @@ struct AlertContext {
     static let createProfileSuccess = AlertItem(title: Text("Profile Create successfully"), message: Text("You profile was successfully saved"), dismissButton: .default(Text("Ok")))
     static let createProfileFail = AlertItem(title: Text("Fail to Create Profile"), message: Text("We were unable to create your profile.\nPlease retry again"), dismissButton: .default(Text("Ok")))
     static let unableToGetProfile = AlertItem(title: Text("Unable to retrieve profile"), message: Text("We were unable to retrieve your profile.\nPlease retry again"), dismissButton: .default(Text("Ok")))
+    static let updateProfileSuccess = AlertItem(title: Text("Profile Update Success!"), message: Text("Your DubDub Grub profile was succesfully update"), dismissButton: .default(Text("Ok")))
+    static let updateProfileFailure = AlertItem(title: Text("Profile Update failed"), message: Text("We were unable to update your profile.\nPlease retry again"), dismissButton: .default(Text("Ok")))
+    
+    //MARK: - LocationDetail View Errors
+    static let invalidPhoneNumber = AlertItem(title: Text("Invalid Phone Number"), message: Text("The number number is invalid"), dismissButton: .default(Text("Ok")))
 }
