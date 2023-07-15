@@ -32,4 +32,7 @@ struct AlertContext {
     
     //MARK: - LocationDetail View Errors
     static let invalidPhoneNumber = AlertItem(title: Text("Invalid Phone Number"), message: Text("The number number is invalid"), dismissButton: .default(Text("Ok")))
+    static let unableToGetCheckInStatus = AlertItem(title: Text("Server Error"), message: Text("Unable to get check in status.\nPlease retry"), dismissButton: .default(Text("Ok")))
+    static let unableToCheckInOrOut = AlertItem(title: Text("Server Error"), message: Text("We are unable to check in/out.\nPlease retry"), dismissButton: .default(Text("Ok")))
+    static let unableToGetCheckInProfile = AlertItem(title: Text("Server Error"), message: Text("We are unable to get users that are checked in.\nPlease retry"), dismissButton: .default(Text("Ok")))
 }
