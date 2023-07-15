@@ -26,6 +26,7 @@
 		FFB795812A5AF6CA00497D3B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB795802A5AF6CA00497D3B /* ProfileViewModel.swift */; };
 		FFC3422D2A5C4172003D1ED8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3422C2A5C4172003D1ED8 /* LoadingView.swift */; };
 		FFEE93822A619F1000C6286C /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEE93812A619F1000C6286C /* LocationDetailViewModel.swift */; };
+		FFEE93842A623F4600C6286C /* ProfileModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEE93832A623F4600C6286C /* ProfileModalView.swift */; };
 		FFFD87862A51E20B008CAEAC /* DDGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87852A51E20B008CAEAC /* DDGLocation.swift */; };
 		FFFD87882A51EB7C008CAEAC /* DDGProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87872A51EB7C008CAEAC /* DDGProfile.swift */; };
 		FFFD878A2A51ECE4008CAEAC /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD87892A51ECE4008CAEAC /* MockData.swift */; };
@@ -63,6 +64,7 @@
 		FFB795802A5AF6CA00497D3B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FFC3422C2A5C4172003D1ED8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FFEE93812A619F1000C6286C /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
+		FFEE93832A623F4600C6286C /* ProfileModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModalView.swift; sourceTree = "<group>"; };
 		FFFD87852A51E20B008CAEAC /* DDGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocation.swift; sourceTree = "<group>"; };
 		FFFD87872A51EB7C008CAEAC /* DDGProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGProfile.swift; sourceTree = "<group>"; };
 		FFFD87892A51ECE4008CAEAC /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				FF79241F2A49C163007F083B /* LocationDetailView.swift */,
 				FFEE93812A619F1000C6286C /* LocationDetailViewModel.swift */,
+				FFEE93832A623F4600C6286C /* ProfileModalView.swift */,
 			);
 			path = LocationDetailView;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				FFFD87942A522E53008CAEAC /* AlertItem.swift in Sources */,
 				FF4F928C2A4F067500D803B8 /* View+Ext.swift in Sources */,
 				FF4F92862A4EFB2000D803B8 /* LocationCell.swift in Sources */,
+				FFEE93842A623F4600C6286C /* ProfileModalView.swift in Sources */,
 				FFFD87922A5204FC008CAEAC /* CKRecord+Ext.swift in Sources */,
 				FFFD879A2A544349008CAEAC /* LocationManager.swift in Sources */,
 				FFFD879C2A54498B008CAEAC /* CKAsset+Ext.swift in Sources */,
