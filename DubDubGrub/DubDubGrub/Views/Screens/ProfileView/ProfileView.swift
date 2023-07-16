@@ -35,8 +35,23 @@ struct ProfileView: View {
                 }
                 
                 VStack(alignment: .leading, spacing: 8){
+                    HStack{
+                        CharactersRemainView(currentCount: viewModel.bio.count)
+                        Spacer()
+                        
+                        if viewModel.isCheckedIn {
+                            Button{ viewModel.checkOut() } label: {
+                                Label("Check Out", systemImage: "mappin.and.ellipse")
+                                    .font(.system(size: 12, weight: .semibold))
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                    .frame(height: 28)
+                                    .background(Color.grubRed)
+                                    .cornerRadius(8)
+                            }
+                        }
+                    }
                     
-                    CharactersRemainView(currentCount: viewModel.bio.count)
                     
                     TextEditor(text: $viewModel.bio)
                         .frame(height: 100)
@@ -58,7 +73,10 @@ struct ProfileView: View {
         .toolbar(content: {
             Button{ dismissKeyboard() } label: { Image(systemName: "keyboard.chevron.compact.down") }
         })
-        .onAppear{ viewModel.getProfile() }
+        .onAppear{
+            viewModel.getProfile()
+            viewModel.getCheckedInStatus()
+        }
         .alert(item: $viewModel.alertItem, content: { alertItem in
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         })
