@@ -22,6 +22,7 @@
 		FF4F928C2A4F067500D803B8 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F928B2A4F067500D803B8 /* View+Ext.swift */; };
 		FF4F928E2A4F072600D803B8 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F928D2A4F072600D803B8 /* DDGButton.swift */; };
 		FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79241F2A49C163007F083B /* LocationDetailView.swift */; };
+		FF863A932A657623006265AF /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF863A922A657623006265AF /* LocationListViewModel.swift */; };
 		FF9FF9DE2A59DC9700F79B11 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FF9DD2A59DC9700F79B11 /* UIImage+Ext.swift */; };
 		FFB795812A5AF6CA00497D3B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB795802A5AF6CA00497D3B /* ProfileViewModel.swift */; };
 		FFC3422D2A5C4172003D1ED8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3422C2A5C4172003D1ED8 /* LoadingView.swift */; };
@@ -60,6 +61,7 @@
 		FF4F928B2A4F067500D803B8 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		FF4F928D2A4F072600D803B8 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
 		FF79241F2A49C163007F083B /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		FF863A922A657623006265AF /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
 		FF9FF9DD2A59DC9700F79B11 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		FFB795802A5AF6CA00497D3B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FFC3422C2A5C4172003D1ED8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -156,7 +158,6 @@
 			children = (
 				FF4F92892A4F065100D803B8 /* CustomModifiers.swift */,
 				FF4F92932A4F08E200D803B8 /* CustomViews */,
-				FF4F92922A4F08DC00D803B8 /* Cells */,
 				FF4F92912A4F08C000D803B8 /* Screens */,
 			);
 			path = Views;
@@ -167,20 +168,12 @@
 			children = (
 				FFB7957F2A5AF6B300497D3B /* ProfileView */,
 				FFFD87952A52337D008CAEAC /* LocationMapView */,
-				FF1DAB512A47C5D000DABE85 /* LocationListView.swift */,
+				FF863A912A657603006265AF /* LocationListView */,
 				FFEE93802A619EF600C6286C /* LocationDetailView */,
 				FF1DAB4D2A47C35200DABE85 /* AppTabView.swift */,
 				FFFDDBF02A572FC200F8ED57 /* OnboardView.swift */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		FF4F92922A4F08DC00D803B8 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				FF4F92852A4EFB2000D803B8 /* LocationCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		FF4F92932A4F08E200D803B8 /* CustomViews */ = {
@@ -193,6 +186,16 @@
 				FFC3422C2A5C4172003D1ED8 /* LoadingView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		FF863A912A657603006265AF /* LocationListView */ = {
+			isa = PBXGroup;
+			children = (
+				FF4F92852A4EFB2000D803B8 /* LocationCell.swift */,
+				FF1DAB512A47C5D000DABE85 /* LocationListView.swift */,
+				FF863A922A657623006265AF /* LocationListViewModel.swift */,
+			);
+			path = LocationListView;
 			sourceTree = "<group>";
 		};
 		FFB7957F2A5AF6B300497D3B /* ProfileView */ = {
@@ -353,6 +356,7 @@
 				FF4F92862A4EFB2000D803B8 /* LocationCell.swift in Sources */,
 				FFEE93842A623F4600C6286C /* ProfileModalView.swift in Sources */,
 				FFFD87922A5204FC008CAEAC /* CKRecord+Ext.swift in Sources */,
+				FF863A932A657623006265AF /* LocationListViewModel.swift in Sources */,
 				FFFD879A2A544349008CAEAC /* LocationManager.swift in Sources */,
 				FFFD879C2A54498B008CAEAC /* CKAsset+Ext.swift in Sources */,
 				FFFDDBF12A572FC200F8ED57 /* OnboardView.swift in Sources */,
