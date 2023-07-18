@@ -15,7 +15,14 @@ struct LocationMapView: View {
     var body: some View {
         ZStack{
             Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: locationManager.locations){ location in
-                MapMarker(coordinate: location.location.coordinate, tint: .brandPrimary)
+                //MapMarker(coordinate: location.location.coordinate, tint: .brandPrimary)
+                MapAnnotation(coordinate: location.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.75)) {
+                    DDGAnnotation(number: viewModel.checkedInProfiles[location.id, default: 0], location: location)
+                        .onTapGesture {
+                            //locationManager.selectedLocation = location
+                            //viewModel.isShowingDetailView = true
+                        }
+                }
             }
             .tint(.grubRed)
             .ignoresSafeArea()
@@ -38,6 +45,7 @@ struct LocationMapView: View {
             if locationManager.locations.isEmpty {
                 viewModel.getLocations(for: locationManager)
             }
+            viewModel.getCheckedInCounts()
         }
     }
 }
