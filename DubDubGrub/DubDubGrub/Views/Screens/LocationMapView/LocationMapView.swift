@@ -19,8 +19,8 @@ struct LocationMapView: View {
                 MapAnnotation(coordinate: location.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.75)) {
                     DDGAnnotation(number: viewModel.checkedInProfiles[location.id, default: 0], location: location)
                         .onTapGesture {
-                            //locationManager.selectedLocation = location
-                            //viewModel.isShowingDetailView = true
+                            locationManager.selectedLocation = location
+                                viewModel.isShowingDetailView = true
                         }
                 }
             }
@@ -32,16 +32,21 @@ struct LocationMapView: View {
                 Spacer()
             }
         }
-        .sheet(isPresented: $viewModel.isShowingOnboardView, onDismiss: {
-            viewModel.checkIfLocationServicesIsEnable()
-        } ,content: {
-            OnboardView(isShowingOnboardView: $viewModel.isShowingOnboardView)
+        .sheet(isPresented: $viewModel.isShowingDetailView, content: {
+            if let location = locationManager.selectedLocation {
+                NavigationView{
+                    LocationDetailView(viewModel: LocationDetailViewModel(location: location))
+                        .toolbar{
+                            Button("Dismiss", action: { viewModel.isShowingDetailView = false })
+                        }
+                }
+                .tint(.brandPrimary)
+            }
         })
         .alert(item: $viewModel.alertItem, content: { alertItem in
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         })
         .onAppear{
-            viewModel.runStartUpChecks()
             if locationManager.locations.isEmpty {
                 viewModel.getLocations(for: locationManager)
             }

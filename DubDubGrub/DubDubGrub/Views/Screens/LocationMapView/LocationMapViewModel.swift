@@ -11,50 +11,12 @@ import CloudKit
 
 final class LocationMapViewModel: NSObject,ObservableObject {
     
+    
     @Published var checkedInProfiles: [CKRecord.ID: Int] = [:]
-    @Published var isShowingOnboardView = false
-    @Published var alertItem: AlertItem?
+    @Published var isShowingDetailView = false
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    @Published var alertItem: AlertItem?
     
-    var deviceLocationManager: CLLocationManager?
-    let kHasSeenOnboardView = "hasSeenOnboardView"
-    var hasSeenOnboardView: Bool {
-        return UserDefaults.standard.bool(forKey: kHasSeenOnboardView)
-    }
-    
-    func runStartUpChecks(){
-        if !hasSeenOnboardView {
-            isShowingOnboardView = true
-            UserDefaults.standard.set(true, forKey: kHasSeenOnboardView)
-        } else {
-            checkIfLocationServicesIsEnable()
-        }
-    }
-    
-    func checkIfLocationServicesIsEnable() {
-        if CLLocationManager.locationServicesEnabled(){
-            self.deviceLocationManager = CLLocationManager()
-            self.deviceLocationManager!.delegate = self
-        } else {
-            self.alertItem = AlertContext.locationDisable
-        }
-    }
-    
-    func checkLocationAuthorization(){
-        guard let deviceLocationManager = deviceLocationManager else { return }
-        switch deviceLocationManager.authorizationStatus {
-            case .notDetermined:
-                deviceLocationManager.requestWhenInUseAuthorization()
-            case .restricted:
-                alertItem = AlertContext.locationRestricted
-            case .denied:
-                alertItem = AlertContext.locationDenied
-            case .authorizedAlways, .authorizedWhenInUse:
-                break
-            @unknown default:
-                break
-        }
-    }
     
     func getLocations(for locationManager: LocationManager){
         CloudKitManager.shared.getLocations { [weak self] result in
@@ -84,11 +46,13 @@ final class LocationMapViewModel: NSObject,ObservableObject {
             }
         }
     }
+    
+    
 }
 
 
-extension LocationMapViewModel: CLLocationManagerDelegate {
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorization()
-    }
-}
+//extension LocationMapViewModel: CLLocationManagerDelegate {
+//    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+//        checkLocationAuthorization()
+//    }
+//}

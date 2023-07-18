@@ -23,6 +23,7 @@
 		FF4F928E2A4F072600D803B8 /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F928D2A4F072600D803B8 /* DDGButton.swift */; };
 		FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79241F2A49C163007F083B /* LocationDetailView.swift */; };
 		FF863A932A657623006265AF /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF863A922A657623006265AF /* LocationListViewModel.swift */; };
+		FF9E9DC52A66B9E9004AA352 /* AppTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9E9DC42A66B9E9004AA352 /* AppTabViewModel.swift */; };
 		FF9FF9DE2A59DC9700F79B11 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9FF9DD2A59DC9700F79B11 /* UIImage+Ext.swift */; };
 		FFB795812A5AF6CA00497D3B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB795802A5AF6CA00497D3B /* ProfileViewModel.swift */; };
 		FFB7AAB72A65F6E90042E1E5 /* MapBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB7AAB62A65F6E90042E1E5 /* MapBalloon.swift */; };
@@ -64,6 +65,7 @@
 		FF4F928D2A4F072600D803B8 /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
 		FF79241F2A49C163007F083B /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		FF863A922A657623006265AF /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
+		FF9E9DC42A66B9E9004AA352 /* AppTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabViewModel.swift; sourceTree = "<group>"; };
 		FF9FF9DD2A59DC9700F79B11 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		FFB795802A5AF6CA00497D3B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FFB7AAB62A65F6E90042E1E5 /* MapBalloon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBalloon.swift; sourceTree = "<group>"; };
@@ -170,11 +172,11 @@
 		FF4F92912A4F08C000D803B8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FF9E9DC32A66B973004AA352 /* AppTabView */,
 				FFB7957F2A5AF6B300497D3B /* ProfileView */,
 				FFFD87952A52337D008CAEAC /* LocationMapView */,
 				FF863A912A657603006265AF /* LocationListView */,
 				FFEE93802A619EF600C6286C /* LocationDetailView */,
-				FF1DAB4D2A47C35200DABE85 /* AppTabView.swift */,
 				FFFDDBF02A572FC200F8ED57 /* OnboardView.swift */,
 			);
 			path = Screens;
@@ -201,6 +203,15 @@
 				FF863A922A657623006265AF /* LocationListViewModel.swift */,
 			);
 			path = LocationListView;
+			sourceTree = "<group>";
+		};
+		FF9E9DC32A66B973004AA352 /* AppTabView */ = {
+			isa = PBXGroup;
+			children = (
+				FF1DAB4D2A47C35200DABE85 /* AppTabView.swift */,
+				FF9E9DC42A66B9E9004AA352 /* AppTabViewModel.swift */,
+			);
+			path = AppTabView;
 			sourceTree = "<group>";
 		};
 		FFB7957F2A5AF6B300497D3B /* ProfileView */ = {
@@ -358,6 +369,7 @@
 				FFFD878A2A51ECE4008CAEAC /* MockData.swift in Sources */,
 				FF7924202A49C163007F083B /* LocationDetailView.swift in Sources */,
 				FFFD87882A51EB7C008CAEAC /* DDGProfile.swift in Sources */,
+				FF9E9DC52A66B9E9004AA352 /* AppTabViewModel.swift in Sources */,
 				FFFD87862A51E20B008CAEAC /* DDGLocation.swift in Sources */,
 				FF09E9FB2A5903DB0030B113 /* PhotoPicker.swift in Sources */,
 				FF1DAB4E2A47C35200DABE85 /* AppTabView.swift in Sources */,

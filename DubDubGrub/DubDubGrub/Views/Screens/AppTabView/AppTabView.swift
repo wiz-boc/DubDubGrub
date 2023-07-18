@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppTabView: View {
 
+    @StateObject private var viewModel = AppTabViewModel()
     var body: some View {
         TabView() {
             LocationMapView()
@@ -30,9 +31,13 @@ struct AppTabView: View {
         .onAppear{
             UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified)
             CloudKitManager.shared.getUserRecord()
+            viewModel.runStartUpChecks()
         }
         .tabViewStyle(DefaultTabViewStyle())
         .tint(.brandPrimary)
+        .sheet(isPresented: $viewModel.isShowingOnboardView, onDismiss: viewModel.checkIfLocationServicesIsEnable) {
+            OnboardView(isShowingOnboardView: $viewModel.isShowingOnboardView)
+        }
     }
 }
 
