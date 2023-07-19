@@ -21,19 +21,11 @@ final class ProfileViewModel: ObservableObject {
     @Published var isCheckedIn = false
     @Published var alertItem: AlertItem?
     
-    private var existingProfileRecord: CKRecord? {
-        didSet { profileContext = .update }
-    }
+    private var existingProfileRecord: CKRecord? { didSet { profileContext = .update } }
     var profileContext: ProfileContext = .create
     
     func isValidProfile() -> Bool {
-        guard !firstName.isEmpty,
-              !lastName.isEmpty,
-              !companyName.isEmpty,
-              !bio.isEmpty,
-              avatar != PlaceholderImage.avatar,
-              bio.count <= 100
-        else { return false }
+        guard !firstName.isEmpty,!lastName.isEmpty,!companyName.isEmpty,!bio.isEmpty,avatar != PlaceholderImage.avatar,bio.count <= 100 else { return false }
         return true
     }
     
@@ -43,7 +35,7 @@ final class ProfileViewModel: ObservableObject {
             return
         }
         CloudKitManager.shared.fetchRecord(with: profileID) { result in
-            //guard let self = self else {return}
+            
             switch result {
                 case .success(let record):
                     record[DDGProfile.KIsCheckedIn] = nil
@@ -60,7 +52,6 @@ final class ProfileViewModel: ObservableObject {
                     }
                 case .failure(_):
                     DispatchQueue.main.async { self.alertItem = AlertContext.unableToCheckInOrOut }
-                    
             }
         }
     }
@@ -71,7 +62,6 @@ final class ProfileViewModel: ObservableObject {
             return
         }
         
-        //Create our CKRecord from the profile view
         let profileRecord = createProfileRecord()
         
         guard let userRecord = CloudKitManager.shared.userRecord else { return }

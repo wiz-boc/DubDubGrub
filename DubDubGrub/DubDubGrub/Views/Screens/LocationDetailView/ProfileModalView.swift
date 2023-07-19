@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileModalView: View {
+    
     @Binding var isShowingProfileModal: Bool
     var profile: DDGProfile
     
@@ -27,9 +28,7 @@ struct ProfileModalView: View {
                     .minimumScaleFactor(0.75)
                     .foregroundColor(.secondary)
                 
-                Text(profile.bio)
-                    .lineLimit(3)
-                    .padding()
+                Text(profile.bio).lineLimit(3).padding()
             }
             .frame(width: 300, height: 230)
             .background(Color(.secondarySystemBackground))

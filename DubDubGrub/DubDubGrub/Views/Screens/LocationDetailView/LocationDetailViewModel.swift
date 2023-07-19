@@ -65,10 +65,9 @@ final class LocationDetailViewModel: ObservableObject {
             return
         }
         CloudKitManager.shared.fetchRecord(with: profileRecordID) { [self] result in
-            //guard let self = self else {return}
+            
             switch result {
                 case .success(let record):
-                    //Create a reference to the location
                     switch checkInStatus {
                         case .checkedIn:
                             record[DDGProfile.KIsCheckedIn] = CKRecord.Reference(recordID: location.id, action: .none)
@@ -77,7 +76,7 @@ final class LocationDetailViewModel: ObservableObject {
                             record[DDGProfile.KIsCheckedIn] = nil
                             record[DDGProfile.KIsCheckedInNilCheck] = nil
                     }
-                    //Save the updated profile to CloudKit
+                    
                     CloudKitManager.shared.save(record: record) { result in
                         DispatchQueue.main.async {
                             switch result {
@@ -104,7 +103,6 @@ final class LocationDetailViewModel: ObservableObject {
     func getCheckedInProfiles(){
         showLoadingView()
         CloudKitManager.shared.getCheckedInProfiles(for: location.id) { [self] result in
-            //guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
                     case .success(let profiles):

@@ -11,6 +11,7 @@ struct LocationListView: View {
     
     @EnvironmentObject private var locationManager: LocationManager
     @StateObject private var viewModel = LocationListViewModel()
+    
     var body: some View {
         NavigationView {
             List{

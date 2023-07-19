@@ -10,6 +10,7 @@ import CloudKit
 final class LocationListViewModel: ObservableObject {
     
     @Published var checkedInProfiles: [CKRecord.ID: [DDGProfile]] = [:]
+    
     func getCheckedInProfilesDictionary(){
         CloudKitManager.shared.getCheckedInProfilesDictionary { result in
             DispatchQueue.main.async {

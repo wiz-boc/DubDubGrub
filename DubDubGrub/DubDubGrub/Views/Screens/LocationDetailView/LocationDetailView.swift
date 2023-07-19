@@ -40,16 +40,14 @@ struct LocationDetailView: View {
                             LocationActionButton(color: .brandPrimary, imageName: "network")
                         })
                         
-                        Button{
-                            viewModel.callLocation()
-                        } label: {
+                        Button{  viewModel.callLocation() } label: {
                             LocationActionButton(color: .brandPrimary, imageName: "phone.fill")
                         }
+                        
                         if CloudKitManager.shared.profileRecordID != nil {
                             Button{
                                 viewModel.updateCheckInStatus(to: viewModel.isCheckedIn ? .checkedOut : .checkedIn)
                             } label: {
-                                
                                 LocationActionButton(color: viewModel.isCheckedIn ? .grubRed : .brandPrimary, imageName: viewModel.isCheckedIn ? "person.fill.xmark" : "person.fill.checkmark")
                             }
                         }
@@ -58,9 +56,7 @@ struct LocationDetailView: View {
                 }
                 .padding(.horizontal)
                 
-                Text("Who's here?")
-                    .bold()
-                    .font(.title2)
+                Text("Who's here?").bold().font(.title2)
                 
                 ZStack{
                     if viewModel.checkedInProfiles.isEmpty {
@@ -83,7 +79,7 @@ struct LocationDetailView: View {
                     
                     if viewModel.isLoading { LoadingView() }
                 }
-            
+                
                 Spacer()
             }
             
@@ -166,7 +162,7 @@ struct BannerImageView: View {
 }
 
 struct AddressView: View {
-var address: String
+    var address: String
     var body: some View {
         Label(address, systemImage: "mappin.and.ellipse")
             .font(.caption)
@@ -176,7 +172,7 @@ var address: String
 
 struct DescriptionView: View {
     
-var description: String
+    var description: String
     var body: some View {
         Text(description)
             .lineLimit(3)

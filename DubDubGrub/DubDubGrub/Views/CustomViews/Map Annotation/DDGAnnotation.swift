@@ -23,6 +23,7 @@ struct DDGAnnotation: View {
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
                     .offset(y: -11)
+                
                 if number > 0 {
                     Text("\(min(number,99))")
                         .font(.system(size: 11, weight: .bold))
@@ -34,14 +35,8 @@ struct DDGAnnotation: View {
                 }
             }
             
-            
-            
-            
-            Text(location.name)
-                .font(.caption)
-                .fontWeight(.semibold)
+            Text(location.name).font(.caption).fontWeight(.semibold)
         }
-        .badge("9adewdewdwedw9")
     }
 }
 

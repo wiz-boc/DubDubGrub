@@ -19,8 +19,6 @@ struct MapBalloon: Shape {
 
 struct MapBalloon_Previews: PreviewProvider {
     static var previews: some View {
-        MapBalloon()
-            .frame(width: 300, height: 240)
-            .foregroundColor(.brandPrimary)
+        MapBalloon().frame(width: 300, height: 240).foregroundColor(.brandPrimary)
     }
 }

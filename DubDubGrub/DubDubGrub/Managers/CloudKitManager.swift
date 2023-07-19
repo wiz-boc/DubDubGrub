@@ -10,7 +10,7 @@ import CloudKit
 final class CloudKitManager {
     
     static let shared = CloudKitManager()
-    
+
     private init(){}
     
     var userRecord: CKRecord?
@@ -71,7 +71,7 @@ final class CloudKitManager {
         let predicate = NSPredicate(format: "isCheckedInNilCheck == 1")
         let query = CKQuery(recordType: RecordType.profile, predicate: predicate)
         let operation = CKQueryOperation(query: query)
-        //operation.desiredKeys = [DDGProfile.KIsCheckedIn,DDGProfile.kAvatar]
+        
         var checkedInProfiles: [CKRecord.ID: [DDGProfile]] = [:]
         operation.recordFetchedBlock = { record in
             //guard let record = record else { return }
@@ -85,9 +85,7 @@ final class CloudKitManager {
                 completed(.failure(error!))
                 return
             }
-            
-            //handle cursor later
-            
+        
             completed(.success(checkedInProfiles))
         }
         CKContainer.default().publicCloudDatabase.add(operation)
@@ -99,6 +97,7 @@ final class CloudKitManager {
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = [DDGProfile.KIsCheckedIn]
         var checkedInProfiles: [CKRecord.ID: Int] = [:]
+        
         operation.recordFetchedBlock = { record in
             
             guard let locationReference = record[DDGProfile.KIsCheckedIn] as? CKRecord.Reference else { return }
@@ -108,6 +107,7 @@ final class CloudKitManager {
                 checkedInProfiles[locationReference.recordID] = 1
             }
         }
+        
         operation.queryCompletionBlock = { cursor, error in
             guard error == nil else {
                 completed(.failure(error!))
@@ -121,6 +121,7 @@ final class CloudKitManager {
     func batchSave(records: [CKRecord], completed: @escaping (Result<[CKRecord], Error>) -> Void){
         
         let operation = CKModifyRecordsOperation(recordsToSave: records)
+        
         operation.modifyRecordsCompletionBlock = { savedRecords, _, error in
             guard let savedRecords = savedRecords, error == nil else {
                 completed(.failure(error!))

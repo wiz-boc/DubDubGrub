@@ -36,9 +36,7 @@ struct LocationMapView: View {
             if let location = locationManager.selectedLocation {
                 NavigationView{
                     LocationDetailView(viewModel: LocationDetailViewModel(location: location))
-                        .toolbar{
-                            Button("Dismiss", action: { viewModel.isShowingDetailView = false })
-                        }
+                        .toolbar{ Button("Dismiss", action: { viewModel.isShowingDetailView = false }) }
                 }
                 .tint(.brandPrimary)
             }

@@ -9,7 +9,9 @@ import SwiftUI
 import CloudKit
 
 struct ProfileView: View {
+    
     @StateObject private var viewModel = ProfileViewModel()
+    
     var body: some View {
         ZStack {
             VStack{
@@ -52,10 +54,10 @@ struct ProfileView: View {
                         }
                     }
                     
-                    
                     TextEditor(text: $viewModel.bio)
                         .frame(height: 100)
-                        .overlay { RoundedRectangle(cornerRadius: 8).stroke(.secondary, lineWidth: 1)}
+                        .overlay { RoundedRectangle(cornerRadius: 8).stroke(.secondary, lineWidth: 1) }
+                    
                 }.padding(.horizontal, 16)
                 
                 Spacer()
@@ -67,7 +69,9 @@ struct ProfileView: View {
                 }
                 .padding(.bottom)
             }
+            
             if viewModel.isLoading { LoadingView() }
+            
         }
         .navigationTitle("Profile")
         .toolbar(content: {

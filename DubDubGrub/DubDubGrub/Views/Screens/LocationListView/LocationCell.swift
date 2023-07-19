@@ -13,6 +13,7 @@ struct LocationCell: View {
     var profiles: [DDGProfile]
     
     var body: some View {
+        
         HStack{
             Image(uiImage: location.createSquareImage())
                 .resizable()
@@ -28,7 +29,6 @@ struct LocationCell: View {
                     .fontWeight(.semibold)
                     .lineLimit(1)
                     .minimumScaleFactor(0.75)
-                
                 
                 if profiles.isEmpty {
                     Text("Nobody's Checked In")

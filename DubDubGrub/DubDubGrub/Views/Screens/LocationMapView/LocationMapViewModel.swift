@@ -17,7 +17,6 @@ final class LocationMapViewModel: NSObject,ObservableObject {
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     @Published var alertItem: AlertItem?
     
-    
     func getLocations(for locationManager: LocationManager){
         CloudKitManager.shared.getLocations { [weak self] result in
             guard let self = self else { return }
@@ -40,19 +39,11 @@ final class LocationMapViewModel: NSObject,ObservableObject {
                     case .success(let checkedInProfiles):
                         self.checkedInProfiles = checkedInProfiles
                     case .failure(_):
-                        //show alerts
                         break
                 }
             }
         }
     }
     
-    
 }
 
-
-//extension LocationMapViewModel: CLLocationManagerDelegate {
-//    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-//        checkLocationAuthorization()
-//    }
-//}
