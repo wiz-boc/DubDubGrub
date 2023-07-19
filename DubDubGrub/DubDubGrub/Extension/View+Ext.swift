@@ -12,6 +12,10 @@ extension View {
         self.modifier(ProfileNameText())
     }
     
+    func playHaptic(){
+       UINotificationFeedbackGenerator().notificationOccurred(.success)
+    }
+    
     func dismissKeyboard(){
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
