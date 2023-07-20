@@ -77,6 +77,7 @@ struct ProfileView: View {
             
         }
         .navigationTitle("Profile")
+        .navigationBarTitleDisplayMode(DeviceTypes.isiPhone8Standard ? .inline : .automatic)
         .toolbar(content: {
             Button{ dismissKeyboard() } label: { Image(systemName: "keyboard.chevron.compact.down") }
         })
