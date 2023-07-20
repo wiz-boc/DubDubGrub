@@ -18,6 +18,7 @@ struct LocationMapView: View {
                 //MapMarker(coordinate: location.location.coordinate, tint: .brandPrimary)
                 MapAnnotation(coordinate: location.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.75)) {
                     DDGAnnotation(number: viewModel.checkedInProfiles[location.id, default: 0], location: location)
+                        .accessibilityLabel(Text("Map Pin \(location.name) \(viewModel.checkedInProfiles[location.id, default: 0]) people checked in."))
                         .onTapGesture {
                             locationManager.selectedLocation = location
                                 viewModel.isShowingDetailView = true
@@ -29,6 +30,7 @@ struct LocationMapView: View {
             
             VStack {
                 LogoView(frameWidth: 125).shadow(radius: 10)
+//                    .accessibilityHidden(true)
                 Spacer()
             }
         }
