@@ -16,8 +16,11 @@ struct LocationListView: View {
         NavigationView {
             List{
                 ForEach(locationManager.locations){ location in
-                    NavigationLink { LocationDetailView(viewModel: LocationDetailViewModel(location: location)) } label: { LocationCell(location: location, profiles: viewModel.checkedInProfiles[location.id, default: []])
-                    }
+                    NavigationLink { LocationDetailView(viewModel: LocationDetailViewModel(location: location)) }
+                label: { LocationCell(location: location, profiles: viewModel.checkedInProfiles[location.id, default: []])
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(Text(viewModel.createVoiceOverSummary(for: location)))
+                }
                 }
             }
             .scrollContentBackground(.hidden)
