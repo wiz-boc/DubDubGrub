@@ -35,18 +35,19 @@ struct LocationDetailView: View {
                             viewModel.getDirectionToLocation()
                         } label: {
                             LocationActionButton(color: .brandPrimary, imageName: "location.fill")
-                                .accessibilityLabel(Text("Get directions"))
                         }
+                        .accessibilityLabel(Text("Get directions"))
                         
                         Link(destination: URL(string: viewModel.location.websiteURL)!, label: {
                             LocationActionButton(color: .brandPrimary, imageName: "network")
-                                .accessibilityLabel(Text("Goto Website"))
                         })
+                        .accessibilityRemoveTraits(.isButton)
+                        .accessibilityLabel(Text("Goto Website"))
                         
                         Button{  viewModel.callLocation() } label: {
                             LocationActionButton(color: .brandPrimary, imageName: "phone.fill")
-                                .accessibilityLabel(Text("Call address"))
                         }
+                        .accessibilityLabel(Text("Call address"))
                         
                         if CloudKitManager.shared.profileRecordID != nil {
                             Button{
@@ -54,8 +55,8 @@ struct LocationDetailView: View {
                                 playHaptic()
                             } label: {
                                 LocationActionButton(color: viewModel.isCheckedIn ? .grubRed : .brandPrimary, imageName: viewModel.isCheckedIn ? "person.fill.xmark" : "person.fill.checkmark")
-                                    .accessibilityLabel(Text(viewModel.isCheckedIn ? "Check out of location" : "Check into location"))
                             }
+                            .accessibilityLabel(Text(viewModel.isCheckedIn ? "Check out of location" : "Check into location"))
                         }
                         
                     }
@@ -77,10 +78,12 @@ struct LocationDetailView: View {
                                 ForEach(viewModel.checkedInProfiles){ profile in
                                     FirstNameAvatarView(profile: profile)
                                         .accessibilityElement(children: .ignore)
+                                        .accessibilityAddTraits(.isButton)
+                                        .accessibilityHint("Show's \(profile.firstName) profile pop up.")
                                         .accessibilityLabel(Text("\(profile.firstName) \(profile.lastName)"))
                                         .onTapGesture {
                                             withAnimation {
-                                                viewModel.isShowingProfileModal = true
+                                                viewModel.selectedProfile = profile
                                             }
                                             
                                         }
@@ -94,16 +97,20 @@ struct LocationDetailView: View {
                 
                 Spacer()
             }
+            .accessibilityHidden(viewModel.isShowingProfileModal)
             
             if viewModel.isShowingProfileModal {
                 Color(.systemBackground)
                     .ignoresSafeArea().opacity(0.9)
                     .transition(AnyTransition.opacity.animation(.easeOut(duration: 0.35)))
                     .zIndex(1)
+                    .accessibilityHidden(true)
                 
-                ProfileModalView(isShowingProfileModal: $viewModel.isShowingProfileModal, profile: DDGProfile(record: MockData.profile))
+                ProfileModalView(isShowingProfileModal: $viewModel.isShowingProfileModal, profile: viewModel.selectedProfile!)
+                    //.accessibilityAddTraits(.isModal)
                     .transition(.opacity.combined(with: .slide))
                     .zIndex(2)
+                    
             }
         }
         .onAppear{
