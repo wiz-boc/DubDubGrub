@@ -100,7 +100,7 @@ struct LocationDetailView: View {
             .accessibilityHidden(viewModel.isShowingProfileModal)
             
             if viewModel.isShowingProfileModal {
-                Color(.systemBackground)
+                Color(.black)
                     .ignoresSafeArea().opacity(0.9)
                     .transition(AnyTransition.opacity.animation(.easeOut(duration: 0.35)))
                     .zIndex(1)
@@ -131,6 +131,8 @@ struct LocationDetailView_Previews: PreviewProvider {
         NavigationView{
             LocationDetailView(viewModel: LocationDetailViewModel(location: DDGLocation(record: MockData.location)))
         }
+        
+        
     }
 }
 
