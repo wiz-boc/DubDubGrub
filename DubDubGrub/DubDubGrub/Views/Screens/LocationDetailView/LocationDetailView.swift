@@ -83,9 +83,8 @@ struct LocationDetailView: View {
                                         .accessibilityLabel(Text("\(profile.firstName) \(profile.lastName)"))
                                         .onTapGesture {
                                             withAnimation {
-                                                viewModel.selectedProfile = profile
+                                                viewModel.show(profile: profile, in: sizeCategory)
                                             }
-                                            
                                         }
                                 }
                             }
@@ -116,6 +115,13 @@ struct LocationDetailView: View {
         .onAppear{
             viewModel.getCheckedInProfiles()
             viewModel.getCheckedInStatus()
+        }
+        .sheet(isPresented: $viewModel.isShowingProfileSheet){
+            NavigationView{
+                ProfileSheetView(profile: viewModel.selectedProfile!)
+                    .toolbar{ Button("Dismiss", action: { viewModel.isShowingProfileSheet = false }) }
+            }
+            .tint(.brandPrimary)
         }
         .alert(item: $viewModel.alertItem, content: { alertItem in
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
@@ -158,12 +164,12 @@ struct LocationActionButton: View {
 }
 
 struct FirstNameAvatarView: View {
-    
+    @Environment(\.sizeCategory) var sizeCategory
     var profile: DDGProfile
 
     var body: some View{
         VStack{
-            AvatarView(image: profile.createAvatarImage(), size: 64)
+            AvatarView(image: profile.createAvatarImage(), size: sizeCategory >= .accessibilityMedium ? 100 : 64)
             Text(profile.firstName)
                 .bold()
                 .lineLimit(1)

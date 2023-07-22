@@ -16,12 +16,13 @@ final class LocationDetailViewModel: ObservableObject {
     @Published var checkedInProfiles: [DDGProfile] = []
     @Published var alertItem: AlertItem?
     @Published var isShowingProfileModal = false
+    @Published var isShowingProfileSheet = false
     @Published var isLoading = false
     @Published var isCheckedIn = false
     
     //let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     var location: DDGLocation
-    var selectedProfile: DDGProfile? { didSet { isShowingProfileModal = true }}
+    var selectedProfile: DDGProfile?
     
     init(location: DDGLocation){ self.location = location }
     
@@ -117,6 +118,15 @@ final class LocationDetailViewModel: ObservableObject {
                 hideLoadingView()
             }
             
+        }
+    }
+    
+    func show(profile: DDGProfile, in sizeCategory: ContentSizeCategory){
+        selectedProfile = profile
+        if sizeCategory >= .accessibilityMedium {
+            isShowingProfileSheet = true
+        }else{
+            isShowingProfileModal = true
         }
     }
     
