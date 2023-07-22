@@ -12,6 +12,10 @@ struct AlertItem: Identifiable {
     let title: Text
     let message: Text
     let dismissButton: Alert.Button
+    
+    var alert: Alert {
+        Alert(title: title, message: message, dismissButton: dismissButton)
+    }
 }
 
 struct AlertContext {
@@ -29,6 +33,7 @@ struct AlertContext {
     static let unableToGetProfile = AlertItem(title: Text("Unable to retrieve profile"), message: Text("We were unable to retrieve your profile.\nPlease retry again"), dismissButton: .default(Text("Ok")))
     static let updateProfileSuccess = AlertItem(title: Text("Profile Update Success!"), message: Text("Your DubDub Grub profile was succesfully update"), dismissButton: .default(Text("Ok")))
     static let updateProfileFailure = AlertItem(title: Text("Profile Update failed"), message: Text("We were unable to update your profile.\nPlease retry again"), dismissButton: .default(Text("Ok")))
+    static let checkedInCount = AlertItem(title: Text("Server Error"), message: Text("Unable to get number of checked in users.\nPlease retry again"), dismissButton: .default(Text("Ok")))
     
     //MARK: - LocationDetail View Errors
     static let invalidPhoneNumber = AlertItem(title: Text("Invalid Phone Number"), message: Text("The number number is invalid"), dismissButton: .default(Text("Ok")))

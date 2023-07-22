@@ -9,50 +9,51 @@ import MapKit
 import CloudKit
 import SwiftUI
 
-
-final class LocationMapViewModel: NSObject,ObservableObject {
+extension LocationMapView {
     
-    
-    @Published var checkedInProfiles: [CKRecord.ID: Int] = [:]
-    @Published var isShowingDetailView = false
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-    @Published var alertItem: AlertItem?
-    
-    func getLocations(for locationManager: LocationManager){
-        CloudKitManager.shared.getLocations { [weak self] result in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch(result){
-                    case .success(let locations):
-                        locationManager.locations = locations
-                    case .failure(_):
-                        self.alertItem = AlertContext.unableToGetLocations
+    final class LocationMapViewModel: NSObject,ObservableObject {
+        
+        @Published var checkedInProfiles: [CKRecord.ID: Int] = [:]
+        @Published var isShowingDetailView = false
+        @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        @Published var alertItem: AlertItem?
+        
+        func getLocations(for locationManager: LocationManager){
+            CloudKitManager.shared.getLocations { [weak self] result in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    switch(result){
+                        case .success(let locations):
+                            locationManager.locations = locations
+                        case .failure(_):
+                            self.alertItem = AlertContext.unableToGetLocations
+                    }
                 }
-            }
-            
-        }
-    }
-    
-    func getCheckedInCounts(){
-        CloudKitManager.shared.getCheckedInProfilesCount { result in
-            DispatchQueue.main.async {
-                switch result {
-                    case .success(let checkedInProfiles):
-                        self.checkedInProfiles = checkedInProfiles
-                    case .failure(_):
-                        break
-                }
+                
             }
         }
-    }
-    
-    @ViewBuilder func createLocationDetailView(for location: DDGLocation, in sizeCategory: ContentSizeCategory) -> some View {
-        if sizeCategory >= .accessibilityMedium {
-            LocationDetailView(viewModel: LocationDetailViewModel(location: location)).embedInScrollView()
-        } else {
-            LocationDetailView(viewModel: LocationDetailViewModel(location: location))
+        
+        func getCheckedInCounts(){
+            CloudKitManager.shared.getCheckedInProfilesCount { result in
+                DispatchQueue.main.async { [self] in
+                    switch result {
+                        case .success(let checkedInProfiles):
+                            self.checkedInProfiles = checkedInProfiles
+                        case .failure(_):
+                            alertItem = AlertContext.checkedInCount
+                    }
+                }
+            }
         }
+        
+        @ViewBuilder func createLocationDetailView(for location: DDGLocation, in sizeCategory: ContentSizeCategory) -> some View {
+            if sizeCategory >= .accessibilityMedium {
+                LocationDetailView(viewModel: LocationDetailViewModel(location: location)).embedInScrollView()
+            } else {
+                LocationDetailView(viewModel: LocationDetailViewModel(location: location))
+            }
+        }
+        
     }
     
 }
-

@@ -59,7 +59,8 @@ struct LocationCell_Previews: PreviewProvider {
     }
 }
 
-struct AdditionalProfilesView: View {
+fileprivate struct AdditionalProfilesView: View {
+    
     var number : Int
     
     var body: some View {

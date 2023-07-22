@@ -24,7 +24,7 @@ struct AppTabView: View {
         .tabViewStyle(DefaultTabViewStyle())
         .tint(.brandPrimary)
         .sheet(isPresented: $viewModel.isShowingOnboardView, onDismiss: viewModel.checkIfLocationServicesIsEnable) {
-            OnboardView(isShowingOnboardView: $viewModel.isShowingOnboardView)
+            OnboardView()
         }
     }
 }

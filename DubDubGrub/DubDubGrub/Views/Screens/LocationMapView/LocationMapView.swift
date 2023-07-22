@@ -14,12 +14,12 @@ struct LocationMapView: View {
     @Environment(\.sizeCategory) var sizeCategory
     
     var body: some View {
-        ZStack{
+        ZStack(alignment: .top){
+            
             Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: locationManager.locations){ location in
                 //MapMarker(coordinate: location.location.coordinate, tint: .brandPrimary)
                 MapAnnotation(coordinate: location.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.75)) {
                     DDGAnnotation(number: viewModel.checkedInProfiles[location.id, default: 0], location: location)
-                        .accessibilityLabel(Text("Map Pin \(location.name) \(viewModel.checkedInProfiles[location.id, default: 0]) people checked in."))
                         .onTapGesture {
                             locationManager.selectedLocation = location
                                 viewModel.isShowingDetailView = true
@@ -29,11 +29,7 @@ struct LocationMapView: View {
             .tint(.grubRed)
             .ignoresSafeArea()
             
-            VStack {
-                LogoView(frameWidth: 125).shadow(radius: 10)
-//                    .accessibilityHidden(true)
-                Spacer()
-            }
+            LogoView(frameWidth: 125).shadow(radius: 10)
         }
         .sheet(isPresented: $viewModel.isShowingDetailView, content: {
             if let location = locationManager.selectedLocation {
@@ -44,9 +40,7 @@ struct LocationMapView: View {
                 .tint(.brandPrimary)
             }
         })
-        .alert(item: $viewModel.alertItem, content: { alertItem in
-            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
-        })
+        .alert(item: $viewModel.alertItem) { $0.alert }
         .onAppear{
             if locationManager.locations.isEmpty {
                 viewModel.getLocations(for: locationManager)
@@ -58,8 +52,7 @@ struct LocationMapView: View {
 
 struct LocationMapView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationMapView()
-            .environmentObject(LocationManager())
+        LocationMapView().environmentObject(LocationManager())
     }
 }
 
