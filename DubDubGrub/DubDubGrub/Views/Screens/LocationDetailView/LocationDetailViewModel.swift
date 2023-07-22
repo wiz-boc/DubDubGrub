@@ -19,12 +19,15 @@ final class LocationDetailViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var isCheckedIn = false
     
-    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    //let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     var location: DDGLocation
     var selectedProfile: DDGProfile? { didSet { isShowingProfileModal = true }}
     
-    init(location: DDGLocation){
-        self.location = location
+    init(location: DDGLocation){ self.location = location }
+    
+    func determineColumns(for sizeCategory: ContentSizeCategory) -> [GridItem] {
+        let numberOfColumns = sizeCategory >= .accessibilityMedium ? 1 : 3
+        return Array(repeating: GridItem(.flexible()), count: numberOfColumns)
     }
     
     func getDirectionToLocation(){

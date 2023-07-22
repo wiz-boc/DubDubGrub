@@ -16,6 +16,14 @@ extension View {
        UINotificationFeedbackGenerator().notificationOccurred(.success)
     }
     
+    func embedInScrollView() -> some View {
+        GeometryReader { geometry in
+            ScrollView {
+                self.frame(minHeight: geometry.size.height, maxHeight: .infinity)
+            }
+        }
+    }
+    
     func dismissKeyboard(){
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
