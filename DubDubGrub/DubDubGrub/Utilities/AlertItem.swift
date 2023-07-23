@@ -25,6 +25,9 @@ struct AlertContext {
     static let locationDenied = AlertItem(title: Text("Location Denied"), message: Text("Dub Dub does not have permission to access your location."), dismissButton: .default(Text("Ok")))
     static let locationDisable = AlertItem(title: Text("Location Disable"), message: Text("Your phone's location services are disabled."), dismissButton: .default(Text("Ok")))
     
+    //MARK: - LocationList View Errors
+    static let unableToGetAllCheckInProfile = AlertItem(title: Text("Server Error"), message: Text("We are unable to get users that are checked in to locations.\nPlease retry"), dismissButton: .default(Text("Ok")))
+    
     //MARK: - ProfileView Errors
     static let invalidProfile = AlertItem(title: Text("Invalid Profile"), message: Text("All fields are required as well as a profile photo. Your bio must be < 100 characters.\n Please try again"), dismissButton: .default(Text("Ok")))
     static let noUserRecord = AlertItem(title: Text("No User Record"), message: Text("You must be sign in to iCloud on your phone to use DubDub grub\n Please sign in in settings"), dismissButton: .default(Text("Ok")))
@@ -40,4 +43,6 @@ struct AlertContext {
     static let unableToGetCheckInStatus = AlertItem(title: Text("Server Error"), message: Text("Unable to get check in status.\nPlease retry"), dismissButton: .default(Text("Ok")))
     static let unableToCheckInOrOut = AlertItem(title: Text("Server Error"), message: Text("We are unable to check in/out.\nPlease retry"), dismissButton: .default(Text("Ok")))
     static let unableToGetCheckInProfile = AlertItem(title: Text("Server Error"), message: Text("We are unable to get users that are checked in.\nPlease retry"), dismissButton: .default(Text("Ok")))
+    
+    
 }
