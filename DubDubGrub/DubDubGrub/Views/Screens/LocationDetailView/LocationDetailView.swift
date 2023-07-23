@@ -52,11 +52,12 @@ struct LocationDetailView: View {
                         if CloudKitManager.shared.profileRecordID != nil {
                             Button{
                                 viewModel.updateCheckInStatus(to: viewModel.isCheckedIn ? .checkedOut : .checkedIn)
-                                playHaptic()
+                                
                             } label: {
                                 LocationActionButton(color: viewModel.isCheckedIn ? .grubRed : .brandPrimary, imageName: viewModel.isCheckedIn ? "person.fill.xmark" : "person.fill.checkmark")
+                                    .accessibilityLabel(Text(viewModel.isCheckedIn ? "Check out of location" : "Check into location"))
                             }
-                            .accessibilityLabel(Text(viewModel.isCheckedIn ? "Check out of location" : "Check into location"))
+                            .disabled(viewModel.isLoading)
                         }
                         
                     }
@@ -83,7 +84,7 @@ struct LocationDetailView: View {
                                         .accessibilityLabel(Text("\(profile.firstName) \(profile.lastName)"))
                                         .onTapGesture {
                                             withAnimation {
-                                                viewModel.show(profile: profile, in: sizeCategory)
+                                                viewModel.show(profile, in: sizeCategory)
                                             }
                                         }
                                 }
@@ -93,8 +94,6 @@ struct LocationDetailView: View {
                     
                     if viewModel.isLoading { LoadingView() }
                 }
-                
-                Spacer()
             }
             .accessibilityHidden(viewModel.isShowingProfileModal)
             
@@ -130,7 +129,7 @@ struct LocationDetailView: View {
     }
 }
 
-struct LocationDetailView_Previews: PreviewProvider {
+fileprivate struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             LocationDetailView(viewModel: LocationDetailViewModel(location: DDGLocation(record: MockData.location)))
@@ -140,7 +139,7 @@ struct LocationDetailView_Previews: PreviewProvider {
     }
 }
 
-struct LocationActionButton: View {
+fileprivate struct LocationActionButton: View {
     
     var color: Color
     var imageName: String
@@ -161,7 +160,7 @@ struct LocationActionButton: View {
     }
 }
 
-struct FirstNameAvatarView: View {
+fileprivate struct FirstNameAvatarView: View {
     @Environment(\.sizeCategory) var sizeCategory
     var profile: DDGProfile
 
@@ -176,7 +175,7 @@ struct FirstNameAvatarView: View {
     }
 }
 
-struct BannerImageView: View {
+fileprivate struct BannerImageView: View {
     var image: UIImage
     var body: some View {
         Image(uiImage: image)
@@ -188,7 +187,7 @@ struct BannerImageView: View {
     }
 }
 
-struct AddressView: View {
+fileprivate struct AddressView: View {
     var address: String
     var body: some View {
         Label(address, systemImage: "mappin.and.ellipse")
@@ -197,7 +196,7 @@ struct AddressView: View {
     }
 }
 
-struct DescriptionView: View {
+fileprivate struct DescriptionView: View {
     
     var description: String
     var body: some View {

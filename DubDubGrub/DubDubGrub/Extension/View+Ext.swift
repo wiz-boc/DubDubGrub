@@ -12,9 +12,9 @@ extension View {
         self.modifier(ProfileNameText())
     }
     
-    func playHaptic(){
-       UINotificationFeedbackGenerator().notificationOccurred(.success)
-    }
+//    func playHaptic(){
+//       UINotificationFeedbackGenerator().notificationOccurred(.success)
+//    }
     
     func embedInScrollView() -> some View {
         GeometryReader { geometry in
