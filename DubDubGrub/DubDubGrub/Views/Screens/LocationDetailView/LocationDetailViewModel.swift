@@ -52,8 +52,8 @@ enum CheckInStatus { case checkedIn, checkedOut }
         
         func getCheckedInStatus(){
             guard let profileRecordID = CloudKitManager.shared.profileRecordID  else { return }
-            CloudKitManager.shared.fetchRecord(with: profileRecordID) { [self] result in
-                DispatchQueue.main.async {
+            CloudKitManager.shared.fetchRecord(with: profileRecordID) { result in
+                DispatchQueue.main.async { [self] in
                     switch result {
                         case .success(let record):
                             if let reference = record[DDGProfile.KIsCheckedIn] as? CKRecord.Reference {
@@ -61,7 +61,7 @@ enum CheckInStatus { case checkedIn, checkedOut }
                             } else {
                                 isCheckedIn = false
                             }
-                        case .failure(let failure):
+                        case .failure(_):
                             alertItem = AlertContext.unableToGetCheckInStatus
                     }
                 }
@@ -89,7 +89,7 @@ enum CheckInStatus { case checkedIn, checkedOut }
                         }
                         
                         CloudKitManager.shared.save(record: record) { result in
-                            DispatchQueue.main.async {
+                            DispatchQueue.main.async { [self] in
                                 hideLoadingView()
                                 switch result {
                                     case .success(let record):
@@ -102,12 +102,12 @@ enum CheckInStatus { case checkedIn, checkedOut }
                                                 checkedInProfiles.removeAll(where: { $0.id == profile.id})
                                         }
                                         isCheckedIn.toggle()
-                                    case .failure(let failure):
+                                    case .failure(_):
                                         alertItem = AlertContext.unableToCheckInOrOut
                                 }
                             }
                         }
-                    case .failure(let failure):
+                    case .failure(_):
                         hideLoadingView()
                         alertItem = AlertContext.unableToCheckInOrOut
                 }
@@ -117,11 +117,11 @@ enum CheckInStatus { case checkedIn, checkedOut }
         func getCheckedInProfiles(){
             showLoadingView()
             CloudKitManager.shared.getCheckedInProfiles(for: location.id) { [self] result in
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [self] in
                     switch result {
                         case .success(let profiles):
                             checkedInProfiles = profiles
-                        case .failure(let failure):
+                        case .failure(_):
                             alertItem =  AlertContext.unableToGetCheckInProfile
                     }
                     hideLoadingView()

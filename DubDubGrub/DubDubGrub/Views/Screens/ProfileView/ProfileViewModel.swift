@@ -37,7 +37,7 @@ extension ProfileView {
                 return
             }
             showLoadingView()
-            CloudKitManager.shared.fetchRecord(with: profileID) { result in
+            CloudKitManager.shared.fetchRecord(with: profileID) { [self] result in
                 
                 
                 switch result {
@@ -45,8 +45,8 @@ extension ProfileView {
                         record[DDGProfile.KIsCheckedIn] = nil
                         record[DDGProfile.KIsCheckedInNilCheck] = nil
                         CloudKitManager.shared.save(record: record) { [self] result in
-                            self.hideLoadingView()
-                            DispatchQueue.main.async {
+                            hideLoadingView()
+                            DispatchQueue.main.async { [self] in
                                 switch result {
                                     case .success(_):
                                         HapticManager.playSuccess()
@@ -57,7 +57,7 @@ extension ProfileView {
                             }
                         }
                     case .failure(_):
-                        self.hideLoadingView()
+                        hideLoadingView()
                         DispatchQueue.main.async { self.alertItem = AlertContext.unableToCheckInOrOut }
                 }
             }
@@ -176,7 +176,7 @@ extension ProfileView {
         func getCheckedInStatus(){
             guard let profileRecordID = CloudKitManager.shared.profileRecordID  else { return }
             CloudKitManager.shared.fetchRecord(with: profileRecordID) { [self] result in
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [self] in
                     switch result {
                         case .success(let record):
                             if let _ = record[DDGProfile.KIsCheckedIn] as? CKRecord.Reference {
@@ -191,8 +191,8 @@ extension ProfileView {
             }
         }
         
-        private func showLoadingView() { isLoading = true }
-        private func hideLoadingView() { isLoading = false }
+        private func showLoadingView() { DispatchQueue.main.async { [self] in isLoading = true } }
+        private func hideLoadingView() { DispatchQueue.main.async { [self] in isLoading = false }  }
         
     }
 }
