@@ -19,11 +19,11 @@ struct AppTabView: View {
         .onAppear{
             UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified)
             CloudKitManager.shared.getUserRecord()
-            viewModel.runStartUpChecks()
+            viewModel.checkIfHasSeenOnboard()
         }
         .tabViewStyle(DefaultTabViewStyle())
         .tint(.brandPrimary)
-        .sheet(isPresented: $viewModel.isShowingOnboardView, onDismiss: viewModel.checkIfLocationServicesIsEnable) {
+        .sheet(isPresented: $viewModel.isShowingOnboardView) {
             OnboardView()
         }
     }

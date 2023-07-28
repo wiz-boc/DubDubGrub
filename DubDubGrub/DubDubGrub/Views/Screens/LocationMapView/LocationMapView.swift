@@ -5,6 +5,7 @@
 //  Created by wizz on 6/24/23.
 //
 
+import CoreLocationUI
 import SwiftUI
 import MapKit
 
@@ -39,6 +40,18 @@ struct LocationMapView: View {
                 }
                 .tint(.brandPrimary)
             }
+        })
+        .overlay(alignment: .bottomLeading,content: {
+            LocationButton(.currentLocation){
+                //button tap
+                viewModel.requestAllowOnceLocationPermission()
+            }
+            .foregroundColor(.white)
+            .symbolVariant(.fill)
+            .tint(.grubRed)
+            .labelStyle(.iconOnly)
+            .clipShape(Circle())
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 0))
         })
         .alert(item: $viewModel.alertItem) { $0.alert }
         .onAppear{
