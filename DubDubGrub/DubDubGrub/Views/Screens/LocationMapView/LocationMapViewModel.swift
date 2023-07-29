@@ -11,7 +11,7 @@ import SwiftUI
 
 extension LocationMapView {
     
-    final class LocationMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+    @MainActor final class LocationMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         @Published var checkedInProfiles: [CKRecord.ID: Int] = [:]
         @Published var isShowingDetailView = false
@@ -41,29 +41,21 @@ extension LocationMapView {
         }
         
         func getLocations(for locationManager: LocationManager){
-            CloudKitManager.shared.getLocations { [weak self] result in
-                guard let self = self else { return }
-                DispatchQueue.main.async {
-                    switch(result){
-                        case .success(let locations):
-                            locationManager.locations = locations
-                        case .failure(_):
-                            self.alertItem = AlertContext.unableToGetLocations
-                    }
+            Task{
+                do{
+                    locationManager.locations = try await CloudKitManager.shared.getLocations()
+                }catch{
+                    alertItem = AlertContext.unableToGetLocations
                 }
-                
             }
         }
         
         func getCheckedInCounts(){
-            CloudKitManager.shared.getCheckedInProfilesCount { result in
-                DispatchQueue.main.async { [self] in
-                    switch result {
-                        case .success(let checkedInProfiles):
-                            self.checkedInProfiles = checkedInProfiles
-                        case .failure(_):
-                            alertItem = AlertContext.checkedInCount
-                    }
+            Task{
+                do{
+                    checkedInProfiles = try await CloudKitManager.shared.getCheckedInProfilesCount()
+                }catch{
+                    alertItem = AlertContext.checkedInCount
                 }
             }
         }

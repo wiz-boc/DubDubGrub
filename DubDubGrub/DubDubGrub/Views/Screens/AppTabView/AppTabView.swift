@@ -16,9 +16,9 @@ struct AppTabView: View {
             LocationListView().tabItem { Label("Locations", systemImage: "building") }
             NavigationView { ProfileView() }.tabItem { Label("Profile", systemImage: "person") }
         }
-        .onAppear{
-            UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified)
-            CloudKitManager.shared.getUserRecord()
+        .onAppear{ UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified) }
+        .task{
+            try? await CloudKitManager.shared.getUserRecord()
             viewModel.checkIfHasSeenOnboard()
         }
         .tabViewStyle(DefaultTabViewStyle())
