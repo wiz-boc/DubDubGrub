@@ -11,7 +11,7 @@ import SwiftUI
 
 extension LocationMapView {
     
-    @MainActor final class LocationMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+    final class LocationMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         @Published var checkedInProfiles: [CKRecord.ID: Int] = [:]
         @Published var isShowingDetailView = false
@@ -40,7 +40,7 @@ extension LocationMapView {
             print("Did Fail With Error")
         }
         
-        func getLocations(for locationManager: LocationManager){
+        @MainActor func getLocations(for locationManager: LocationManager){
             Task{
                 do{
                     locationManager.locations = try await CloudKitManager.shared.getLocations()
@@ -50,7 +50,7 @@ extension LocationMapView {
             }
         }
         
-        func getCheckedInCounts(){
+        @MainActor func getCheckedInCounts(){
             Task{
                 do{
                     checkedInProfiles = try await CloudKitManager.shared.getCheckedInProfilesCount()
@@ -60,7 +60,7 @@ extension LocationMapView {
             }
         }
         
-        @ViewBuilder func createLocationDetailView(for location: DDGLocation, in dynamicTypeSize: DynamicTypeSize) -> some View {
+        @MainActor @ViewBuilder func createLocationDetailView(for location: DDGLocation, in dynamicTypeSize: DynamicTypeSize) -> some View {
             if dynamicTypeSize >= .accessibility3 {
                 LocationDetailView(viewModel: LocationDetailViewModel(location: location)).embedInScrollView()
             } else {

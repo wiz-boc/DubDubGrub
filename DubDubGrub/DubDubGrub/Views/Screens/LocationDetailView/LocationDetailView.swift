@@ -33,7 +33,7 @@ struct LocationDetailView: View {
             viewModel.getCheckedInStatus()
         }
         .sheet(isPresented: $viewModel.isShowingProfileSheet){
-            NavigationView{
+            NavigationStack{
                 ProfileSheetView(profile: viewModel.selectedProfile!)
                     .toolbar{ Button("Dismiss", action: { viewModel.isShowingProfileSheet = false }) }
             }
@@ -48,7 +48,7 @@ struct LocationDetailView: View {
 
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
+        NavigationStack{
             LocationDetailView(viewModel: LocationDetailViewModel(location: DDGLocation(record: MockData.location)))
         }
     }
@@ -139,13 +139,15 @@ fileprivate struct LocationActionButton: View {
     var body: some View {
         ZStack{
             Circle()
-                .foregroundColor(color)
+                //.fill(Color.brandPrimary.gradient.shadow(.inner(color: .black.opacity(0.5),radius: 5)))
+                //.foregroundColor(color)
                 .frame(width: 60, height: 60)
             
             Image(systemName: imageName)
                 .resizable()
                 .scaledToFit()
-                .foregroundColor(.white)
+                //.foregroundColor(.white)
+                .foregroundStyle(.white.shadow(.drop(color: .black.opacity(0.5),radius: 3)))
                 .frame(width: 22, height: 22)
             
         }

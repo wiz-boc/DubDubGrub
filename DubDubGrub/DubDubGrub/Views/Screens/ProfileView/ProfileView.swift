@@ -56,8 +56,12 @@ struct ProfileView: View {
                             .disabled(viewModel.isLoading)
                         }
                     }
-                    
-                    BioTextEditor(text: $viewModel.bio).focused($focusTextField, equals: .bio)
+                    TextField("Enter your bio", text: $viewModel.bio, axis: .vertical)
+                        .textFieldStyle(.roundedBorder)
+                        .lineLimit(3...6)
+                        .focused($focusTextField, equals: .bio)
+                        .accessibilityHint(Text("This textfield is for your bio and has a 100 character limit"))
+                    //BioTextEditor(text: $viewModel.bio).focused($focusTextField, equals: .bio)
                     
                 }.padding(.horizontal, 16)
                 
@@ -95,7 +99,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{ ProfileView() }
+        NavigationStack{ ProfileView() }
     }
 }
 
